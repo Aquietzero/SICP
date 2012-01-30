@@ -1,5 +1,3 @@
-(require scheme/runtime-config)
-
 (define (square x) (* x x))
 
 (define (smallest-divisor n)
@@ -15,6 +13,15 @@
 
 (define (prime? n)
   (= n (smallest-divisor n)))
+
+(define (search-for-primes bgn end)
+  (define (search-for-primes-iter cur end)
+    (if (<= cur end)
+      (begin
+        (timed-prime-test cur)
+        (search-for-primes-iter (+ cur 2) end))))
+  (search-for-primes-iter (if (even? bgn) (+ bgn 1) bgn)
+                          end))
 
 (define (timed-prime-test n)
   (newline)
