@@ -4,5 +4,5 @@
 ; will be evaluated again. Such kind of cross procedure calls
 ; between two procedures may lead to an infinite loop. Only
 ; when procedure `good-enough?` is evaluated can the loop
-; terminate, but it just cannot happen if `new-if` is not a 
+; terminate, but it just cannot happen if `new-if` is not a
 ; basic procedure.
