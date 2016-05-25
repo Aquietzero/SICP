@@ -25,6 +25,40 @@
 
   (pascal-iter 0 0))
 
+
+(define (beautiful-pascal n)
+  ; Display n tabs.
+  (define (n-tabs n)
+    (if (not (= n 0))
+      (begin (display "\t") (n-tabs (- n 1)))))
+
+  ; Generate a single pascal element in a line.
+  (define (gen-element k n)
+    (begin
+      (display (combination k n))
+      (display "\t\t")))
+
+  ; Generate a single pascal line in a triangle.
+  (define (gen-line nth-line)
+    (define (gen-line-iter nth-element)
+      (if (not (= (+ nth-line 1) nth-element))
+        (begin
+          (gen-element nth-element nth-line)
+          (gen-line-iter (+ nth-element 1)))))
+    (gen-line-iter 0))
+
+  (define (pascal-iter nth-line)
+    (if (not (= nth-line n))
+      (begin
+        (newline)
+        (n-tabs (- n nth-line))
+        (gen-line nth-line)
+        (newline)
+        (pascal-iter (+ nth-line 1)))))
+
+  (pascal-iter 0))
+
+
 ; Calculate the combination of k out of n.
 (define (combination k n)
   (if (or (= k 0) (= n k))

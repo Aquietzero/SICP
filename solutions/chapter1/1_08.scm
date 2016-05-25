@@ -26,8 +26,8 @@
 
   ; test to see if the guess if good enough.
   (define (good-enough? guess prev-guess)
-    (< (/ (abs (- guess prev-guess)) 
-          guess) 
+    (< (/ (abs (- guess prev-guess))
+          guess)
        accuracy))
 
   ; Newton iteration.

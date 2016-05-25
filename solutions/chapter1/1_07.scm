@@ -30,7 +30,7 @@
   ; Newton iteration.
   (define (improve guess)
     (average guess (/ x guess)))
- 
+
   ; begin the iteration.
   (better-sqrt-iter 1.0 0))
 
