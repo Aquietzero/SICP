@@ -11,7 +11,7 @@
 (define (cc amount kind-of-coins level)
   (cond ((= amount 0) 1)
         ((or (< amount 0) (= kind-of-coins 0)) 0)
-        (else 
+        (else
 
           ; temperarily remenber the recursion result.
           (let ((c1 (cc amount
@@ -47,7 +47,7 @@
 ;
 ;   cc(n, k) = cc(n, k-1) + cc(n-fd(k), k)
 ;
-; , where n denotes the amount of money and k denotes the kinds of 
+; , where n denotes the amount of money and k denotes the kinds of
 ; coins available for money changing. Since k is a fixed number, so
 ; the depth of cc(n, k-1) is fixed, which is 5. So the depth of the
 ; tree depends on the recursion depth of cc(n-fd(k), k), which is n.
