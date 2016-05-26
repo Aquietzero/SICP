@@ -34,3 +34,5 @@
 (define (report-prime elapsed-time)
   (display " *** ")
   (display elapsed-time))
+
+; Too fast to be capture the time elpased.
