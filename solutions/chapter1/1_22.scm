@@ -20,8 +20,7 @@
       (begin
         (timed-prime-test cur)
         (search-for-primes-iter (+ cur 2) end))))
-  (search-for-primes-iter (if (even? bgn) (+ bgn 1) bgn)
-                          end))
+  (search-for-primes-iter (if (even? bgn) (+ bgn 1) bgn) end))
 
 (define (timed-prime-test n)
   (newline)

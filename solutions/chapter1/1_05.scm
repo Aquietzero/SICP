@@ -16,12 +16,12 @@
 ;   2. expand procedure `test` to get:
 ;           (if (= 0 0) 0 p)
 ;   3. before the evaluation of procedure `if`, its parameter
-;      `p` show be evaluated first.
+;      `p` should be evaluated first.
 ;   4. since procedure `p` is self-defined, so the substitution
-;      process of procedure `p` is an infinite loop, which 
+;      process of procedure `p` is an infinite loop, which
 ;      explains the consequence.
 ;
-; While in normal-order, procedure `p` will not be evaluated 
+; While in normal-order, procedure `p` will not be evaluated
 ; until it is needed. Since `x` is evaluated first, which may
 ; lead procedure `if` to return 0, there is no need to evaluate
 ; procedure `p`. So infinite loop will not occure.
