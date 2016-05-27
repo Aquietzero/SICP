@@ -13,8 +13,8 @@
 (define (carmichael? n)
   (define (carmichael-iter a)
     (cond ((= a n) #t)
-          (else 
-            (and (try-it a) 
+          (else
+            (and (try-it a)
                  (carmichael-iter (+ a 1))))))
   (define (try-it a)
     (= a (expmod a n n)))
