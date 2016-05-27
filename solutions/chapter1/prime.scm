@@ -12,4 +12,5 @@
         (else (find-divisor n (+ test-divisor 1)))))
 
 (define (prime? n)
-  (= n (smallest-divisor n)))
+  (if (< n 2) #f (= n (smallest-divisor n))))
+

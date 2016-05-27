@@ -5,7 +5,6 @@
       (iter (next a) (+ result (term a)))))
   (iter a 0))
 
-
 (define (sum-integers a b)
   (define (identity x) x)
   (define (inc x) (+ x 1))
