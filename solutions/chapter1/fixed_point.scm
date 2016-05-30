@@ -11,3 +11,5 @@
       (if (< (distance guess (f guess)) tolerance) next (fixed-point-iter next))))
   (fixed-point-iter guess))
 
+(define (sqrt x)
+  (fixed-point (lambda (y) (/ (+ y (/ x y)) 2.0)) 1.0))
