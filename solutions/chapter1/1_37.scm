@@ -1,5 +1,7 @@
+; Both the recursive and iterative version of continued fraction starts
+; from 0.
 (define (cont-frac n d k)
-  (if (= k 1)
+  (if (= k 0)
     1
     (/
       (n (- k 1))
@@ -12,7 +14,7 @@
       (cont-frac-iter
         (- i 1)
         (/ (n (- i 1))
-           (+ (d (- k 1)) result)))))
+           (+ (d (- i 1)) result)))))
   (cont-frac-iter k 1))
 
 ; (cont-frac (lambda (i) 1.0)
