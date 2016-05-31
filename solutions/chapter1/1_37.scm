@@ -1,11 +1,23 @@
 ; Both the recursive and iterative version of continued fraction starts
 ; from 0.
+;
+; The following gives a wrong solution which I took some time to realize
+; that the index has been setup reversely.
+;
+; (define (cont-frac n d k)
+;   (if (= k 0)
+;     1
+;     (/
+;       (n (- k 1))
+;       (+ (d (- k 1)) (cont-frac n d (- k 1))))))
 (define (cont-frac n d k)
-  (if (= k 0)
-    1
-    (/
-      (n (- k 1))
-      (+ (d (- k 1)) (cont-frac n d (- k 1))))))
+  (define (cont-frac-rec i)
+    (/ (n i)
+       (+ (d i)
+          (if (= i k)
+            0
+            (cont-frac-rec (+ i 1))))))
+  (cont-frac-rec 0))
 
 (define (cont-frac-iteration n d k)
   (define (cont-frac-iter i result)
@@ -15,7 +27,7 @@
         (- i 1)
         (/ (n (- i 1))
            (+ (d (- i 1)) result)))))
-  (cont-frac-iter k 1))
+  (cont-frac-iter k 0))
 
 ; (cont-frac (lambda (i) 1.0)
 ;            (lambda (i) 1.0)

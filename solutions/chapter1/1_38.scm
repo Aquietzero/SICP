@@ -6,6 +6,6 @@
     (if (= (modulo i 3) 1)
       (* 2 (+ (/ (- i 1) 3) 1))
       1)))
-  (+ 2 (cont-frac-iteration n d 1000)))
+  (+ 2 (cont-frac n d 1000)))
 
 (e)
