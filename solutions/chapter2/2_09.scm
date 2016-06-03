@@ -5,7 +5,7 @@
 (define a (make-interval -3 6))
 (define b (make-interval 7 9))
 
-(= (interval-width (add-interval a b))
-   (+ (interval-width a) (interval-width b)))
-(= (interval-width (sub-interval a b))
-   (+ (interval-width a) (interval-width b)))
+(= (width (add-interval a b))
+   (+ (width a) (width b)))
+(= (width (sub-interval a b))
+   (+ (width a) (width b)))

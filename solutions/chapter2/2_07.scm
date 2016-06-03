@@ -10,8 +10,16 @@
   (display (upper-bound i))
   (display ")"))
 
-(define (interval-width i)
+(define (make-center-percent c p)
+  (make-interval (- c (* c p))
+                 (+ c (* c p))))
+
+(define (width i)
   (/ (- (upper-bound i) (lower-bound i)) 2))
+(define (center i)
+  (/ (+ (upper-bound i) (lower-bound i)) 2))
+(define (percent i)
+  (/ (width i) (center i)))
 
 (define (add-interval x y)
   (make-interval (+ (lower-bound x) (lower-bound y))
@@ -36,6 +44,11 @@
 (define (div-interval x y)
   (mul-interval
     x
-    (make-interval (/ 1.0 (upper-bound y))
-                   (/ 1.0 (lower-bound y)))))
+    (if
+      (or (= (lower-bound y) 0)
+          (= (upper-bound y) 0)
+          (= (lower-bound y) (upper-bound y)))
+      (error "Divide by an interval spans zero.")
+      (make-interval (/ 1.0 (upper-bound y))
+                     (/ 1.0 (lower-bound y))))))
 
